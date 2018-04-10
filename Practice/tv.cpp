@@ -99,5 +99,5 @@ void interactive::tv::ChangeRemoteMode(remote & rmt)
 void remote::DispMod()
 {
 	cout << "The remote is now controlling " << ((_ctrlMode == Tv) ? "Tv" : "DVD") << endl;
-	cout << "The remote is now in " << ((_rmtMod == Normal) ? "Normal" : "Play") << " moed" << endl << endl;
+	cout << "The remote is now in " << ((_rmtMod == Normal) ? "Normal" : "Play") << " mode" << endl << endl;
 }

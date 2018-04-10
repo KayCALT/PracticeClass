@@ -31,6 +31,10 @@ int main()
 	skyworth.DispSettings();
 	hisense.DispSettings();
 
+	controller.DispMod();
+	skyworth.ChangeRemoteMode(controller);
+	controller.DispMod();
+
 	std::cin.get();
 }
 
