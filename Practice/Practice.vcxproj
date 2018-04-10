@@ -115,7 +115,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\PracticeNo.2\square_plus.cpp" />
     <ClCompile Include="practice.cpp" />
     <ClCompile Include="tv.cpp" />
   </ItemGroup>
