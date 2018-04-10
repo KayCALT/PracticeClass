@@ -33,6 +33,11 @@ namespace interactive {
 		Tv,
 		DVD
 	};
+	enum RemoteMod
+	{
+		Normal,
+		Play
+	};
 	class tv;
 	class remote;
 }
@@ -42,7 +47,8 @@ namespace interactive {
 class interactive::remote
 {
 public:
-	remote(Input mod = interactive::Tv) :_CtrlMode(mod) {}
+	friend class tv;
+	remote(Input mod = Tv,RemoteMod rmod=Normal) :_ctrlMode(mod),_rmtMod(rmod) {}
 	inline void VolUp(tv & t);
 	inline void VolDown(tv & t);
 	inline void ChannelUp(tv & t);
@@ -51,17 +57,18 @@ public:
 	inline void Set_Mode(tv & t);
 	inline void Set_Input(tv & t);
 	inline void Set_Channel(tv & t, int chal);
-
+	void DispMod();
 
 private:
-	Input  _CtrlMode;   //controls TV or DVD
+	Input  _ctrlMode;   //controls TV or DVD
+	RemoteMod _rmtMod;
 };
 
 class interactive::tv
 {
 public:
-	//friend class remote;        //remote is tv's friend,but tv is not remote's.
-	friend void remote::Set_Channel(tv & t, int chal);
+	friend class remote;        //remote is tv's friend,but tv is not remote's.
+	//friend void remote::Set_Channel(tv & t, int chal);
 	
 public:
 	tv(State s=Off,int MaxChannel=120);
@@ -77,6 +84,7 @@ public:
 	void Set_Mode();
 	void Set_Input();
 	void DispSettings();
+	void ChangeRemoteMode(remote & rmt);
 
 private:
 	State _sta;

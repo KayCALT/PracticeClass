@@ -5,6 +5,7 @@
 using std::cout;
 using std::endl;
 using interactive::tv;
+using interactive::remote;
 
 
 tv::tv(interactive::State s, int MaxChannel)
@@ -87,4 +88,16 @@ void tv::DispSettings()
 	cout << "The current channel is " << _channel << " and the max channel is " << _maxChannel << endl;
 	cout << "The current input is " << ((_inpt==Tv)?"Tv":"DVD") << endl;
 	cout << "The current mode is " <<( (_mod == Cable) ? "Cable" : "Antenna" )<< endl<<endl;
+}
+
+void interactive::tv::ChangeRemoteMode(remote & rmt)
+{
+	if (_sta==On)
+	rmt._rmtMod = (rmt._rmtMod == Normal) ? Play : Normal;
+}
+
+void remote::DispMod()
+{
+	cout << "The remote is now controlling " << ((_ctrlMode == Tv) ? "Tv" : "DVD") << endl;
+	cout << "The remote is now in " << ((_rmtMod == Normal) ? "Normal" : "Play") << " moed" << endl << endl;
 }
