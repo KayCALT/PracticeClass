@@ -18,5 +18,13 @@
     <ClCompile Include="Practice2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ComplexNum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ComplexNum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
